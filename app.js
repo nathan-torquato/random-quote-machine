@@ -7,7 +7,11 @@ async function handleNewQuoteClick() {
   const quoteObject = await fetchRandomQuote()
   renderQuote(quoteObject)
   renderAuthor(quoteObject)
-  toggleLoading()
+  toggleLoadingRemove()
+}
+
+function toggleLoadingRemove() {
+  quoteBoxElement.classList.remove('loading')
 }
 
 function toggleLoading() {
