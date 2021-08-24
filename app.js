@@ -7,11 +7,15 @@ async function handleNewQuoteClick() {
   const quoteObject = await fetchRandomQuote()
   renderQuote(quoteObject)
   renderAuthor(quoteObject)
-  toggleLoading()
+  toggleLoading(quoteObject)
 }
 
-function toggleLoading() {
-  quoteBoxElement.classList.add('loading')
+function toggleLoading(quoteObject) {
+  if (quoteObject) {
+    quoteBoxElement.classList.toggle("loading");
+  } else {
+    quoteBoxElement.classList.toggle("loading");
+  }
 }
 
 async function fetchRandomQuote() {
