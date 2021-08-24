@@ -11,7 +11,7 @@ async function handleNewQuoteClick() {
 }
 
 function toggleLoading() {
-  quoteBoxElement.classList.add('loading')
+  quoteBoxElement.classList.toggle('loading')
 }
 
 async function fetchRandomQuote() {
