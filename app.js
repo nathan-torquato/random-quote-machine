@@ -3,11 +3,21 @@ const newQuoteButton = document.querySelector('#new-quote')
 newQuoteButton.addEventListener('click', handleNewQuoteClick)
 
 async function handleNewQuoteClick() {
+  hiddenNewQuote()
   toggleLoading()
   const quoteObject = await fetchRandomQuote()
   renderQuote(quoteObject)
   renderAuthor(quoteObject)
   toggleLoadingRemove()
+  visibleNewQuote()
+}
+
+function hiddenNewQuote() {
+  document.getElementById('new-quote').style.display = 'none'
+}
+
+function visibleNewQuote() {
+  document.getElementById('new-quote').style.display = 'inline'
 }
 
 function toggleLoadingRemove() {
