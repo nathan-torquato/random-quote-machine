@@ -4,14 +4,23 @@ newQuoteButton.addEventListener('click', handleNewQuoteClick)
 
 async function handleNewQuoteClick() {
   toggleLoading()
+  toggleNewQuoteBtnActivity()
   const quoteObject = await fetchRandomQuote()
   renderQuote(quoteObject)
   renderAuthor(quoteObject)
+  toggleNewQuoteBtnActivity()
   toggleLoading()
 }
 
 function toggleLoading() {
-  quoteBoxElement.classList.add('loading')
+  quoteBoxElement.classList.toggle('loading')
+}
+
+function toggleNewQuoteBtnActivity() {
+  const isNewQuoteBtnDisabled = newQuoteButton.disabled
+  
+  if(isNewQuoteBtnDisabled) newQuoteButton.disabled = false
+  if(!isNewQuoteBtnDisabled) newQuoteButton.disabled = true
 }
 
 async function fetchRandomQuote() {
